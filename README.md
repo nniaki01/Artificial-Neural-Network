@@ -30,6 +30,7 @@ The framework is used for binary classification on two datasets:
   Goal: Predict the severity (benign or malignant) of a mammographic mass lesion from BI-RADS attributes and the patient's age.
     Number of Features: 5 (1 non-predictive, 4 predictive)                 
     Attribute Information:                                                 
+        
         1. BI-RADS assessment: 1 to 5 (ordinal)                            
         2. Age: patient's age in years (integer)                                  
         3. Mass shape: ound=1 oval=2 lobular=3 irregular=4 (nominal)              

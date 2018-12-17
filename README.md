@@ -45,8 +45,7 @@ We implement a multi-layer neural network with a single hidden layer with full f
 Note that in both datasets, the _numerical_ features are standardized to have zero mean and unit standard deviation and examples (rows) with missing values are removed.
 
 ### Analysis
-In evaluating the performance of the classifier, care must be taken in terms of selecting the appropriate metric.
-    
+In evaluating the performance of the classifier, care must be taken in terms of selecting the appropriate metric.   
 * Glassdoor Dataset
    
   In this dataset, the + class seems to be a lot less probable than the − class. In this case, a classifier can achieve good accuracy by always predicting the − class, obviously indicating a non-ideal classifier, i.e., accuracy ignores the probability estimations of classification in favor of class labels. Receiver operating characteristics (ROC) curve, on the other hand, shows the trade-off between false positive and true positive rates, making the area below the ROC curve (AUC) a better measure than accuracy for our scenario. In fact, ROC describes the discriminative power of a classifier independent of class distribution and unequal prediction error costs.
@@ -56,3 +55,6 @@ In evaluating the performance of the classifier, care must be taken in terms of 
   We illustrate the advantage of the AUC over accuracy by plotting the ROC curve as well as accuracy versus ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta). 
   
   As we can see, the accuracy metric is excellent for a large enough value of ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta), i.e., when predicting every instance as −.
+  
+  An analysis of the Precision-Recall curve will be soon added.
+* Mammography Dataset

@@ -43,3 +43,16 @@ The framework is used for binary classification on two datasets:
 We implement a multi-layer neural network with a single hidden layer with full feed-forward interconnection (units in one layer are connected to every unit in the next) in order to learn nonlinear decision boundaries. There are ![Equation](https://latex.codecogs.com/gif.latex?w) neurons in the hidden layer. Note that given an adequate number of hidden units ![Equation](https://latex.codecogs.com/gif.latex?w), ![Equation](https://latex.codecogs.com/gif.latex?%5Cinline%20d%3D1)-layer networks can implement arbitrary decision boundaries and any higher number of layers makes training times become very long. The activation function in both hidden and output layers is the Sigmoid activation (it's possible to apply ReLU activation function to the nodes in the hidden layer).
 
 Note that in both datasets, the _numerical_ features are standardized to have zero mean and unit standard deviation and examples (rows) with missing values are removed.
+
+### Analysis
+In evaluating the performance of the classifier, care must be taken in terms of selecting the appropriate metric.
+    
+* Glassdoor Dataset
+   
+  In this dataset, the + class seems to be a lot less probable than the − class. In this case, a classifier can achieve good accuracy by always predicting the − class, obviously indicating a non-ideal classifier, i.e., accuracy ignores the probability estimations of classification in favor of class labels. Receiver operating characteristics (ROC) curve, on the other hand, shows the trade-off between false positive and true positive rates, making the area below the ROC curve (AUC) a better measure than accuracy for our scenario. In fact, ROC describes the discriminative power of a classifier independent of class distribution and unequal prediction error costs.
+
+  Ideally, a classifier has a true positive rate of 1 and a false positive rate of 0 (AUC= 1), and hence a classifier is better the closer it gets to the upper-left corner. On the ![Equation](https://latex.codecogs.com/gif.latex?45%5E%5Cdegree) line, we have the worst performance as we make as many true decisions as false ones (any classifier that is below the diagonal can be improved by flipping its decision).
+        
+  We illustrate the advantage of the AUC over accuracy by plotting the ROC curve as well as accuracy versus ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta). 
+  
+  As we can see, the accuracy metric is excellent for a large enough value of ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta), i.e., when predicting every instance as −.

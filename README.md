@@ -1,4 +1,4 @@
-# Artificial-Neural-Network
+# Artificial Neural Network
 This project implements a multilayer artificial neural network fromscratch in Python. 
 The framework is used for binary classification on two datasets:
 * [Glassdoor Data](http://bit.ly/GlassdoorApply):
@@ -39,3 +39,7 @@ The framework is used for binary classification on two datasets:
         6. Severity: benign=0 or malignant=1 (binominal)                          
     
     Obtained from <https://archive.ics.uci.edu/ml/datasets/Mammographic+Mass>
+## Network Architecture
+We implement a multi-layer neural network with a single hidden layer with full feed-forward interconnection (units in one layer are connected to every unit in the next) in order to learn nonlinear decision boundaries. There are ![Equation](https://latex.codecogs.com/gif.latex?w) neurons in the hidden layer. Note that given an adequate number of hidden units ![Equation](https://latex.codecogs.com/gif.latex?w), ![Equation](https://latex.codecogs.com/gif.latex?%5Cinline%20d%3D1)-layer networks can implement arbitrary decision boundaries and any higher number of layers makes training times become very long. The activation function in both hidden and output layers is the Sigmoid activation.
+
+Note that in both datasets, the _numerical_ features are standardized to have zero mean and unit standard deviation and examples (rows) with missing values are removed.

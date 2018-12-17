@@ -50,7 +50,7 @@ In evaluating the performance of the classifier, care must be taken in terms of 
    
   In this dataset, the + class seems to be a lot less probable than the − class. In this case, a classifier can achieve good accuracy by always predicting the − class, obviously indicating a non-ideal classifier, i.e., accuracy ignores the probability estimations of classification in favor of class labels. Receiver operating characteristics (ROC) curve, on the other hand, shows the trade-off between false positive and true positive rates, making the area below the ROC curve (AUC) a better measure than accuracy for our scenario. In fact, ROC describes the discriminative power of a classifier independent of class distribution and unequal prediction error costs.
 
-  Ideally, a classifier has a true positive rate of 1 and a false positive rate of 0 (AUC= 1), and hence a classifier is better the closer it gets to the upper-left corner. On the ![Equation](https://latex.codecogs.com/gif.latex?45%5E%5Cdegree) line, we have the worst performance as we make as many true decisions as false ones (any classifier that is below the diagonal can be improved by flipping its decision).
+  Ideally, a classifier has a true positive rate of 1 and a false positive rate of 0 (AUC= 1), and hence a classifier is better the closer it gets to the upper-left corner. On the ![Equation](https://latex.codecogs.com/gif.latex?45%5E%5Cdegree) baseline, we have the worst performance as we make as many true decisions as false ones (any classifier that is below the diagonal can be improved by flipping its decision).
         
   We illustrate the advantage of the AUC over accuracy by plotting the ROC curve as well as accuracy versus ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta). 
   
@@ -58,3 +58,5 @@ In evaluating the performance of the classifier, care must be taken in terms of 
   
   An analysis of the Precision-Recall curve will be soon added.
 * Mammography Dataset
+
+  This dataset is more or less balanced as shown by the baseline of the Precision-Recall curve, i.e., ![Equation](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Cfrac%7BP%7D%7BP&plus;N%7D), where P is the number of positive labels in the traning set and N is the number of negative labels.

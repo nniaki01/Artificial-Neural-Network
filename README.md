@@ -56,7 +56,7 @@ In evaluating the performance of the classifier, care must be taken in terms of 
   
   As we can see, the accuracy metric is excellent for a large enough value of ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta), i.e., when predicting every instance as −.
   
-  An analysis of the Precision-Recall curve will be soon added.
+  As the classes are very imbalanced, we also plot the Precision-Recall curve; precision is a measure of result relevancy, while recall is a measure of how many truly relevant results are returned.
 * Mammography Dataset
 
   This dataset is more or less balanced as shown by the baseline of the Precision-Recall curve, i.e., ![Equation](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Cfrac%7BP%7D%7BP&plus;N%7D), where P is the number of positive labels in the traning set and N is the number of negative labels.

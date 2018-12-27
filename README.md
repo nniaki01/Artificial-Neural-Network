@@ -39,7 +39,7 @@ os
 <p>The code tag <code># OPT</code> denotes <em>optional</em> lines or blocks of code that can be uncommented for modification of the parameters of the network, storage of auxiliary data, e.g., train and test data sets, and/or printing information-only statements.</p>
 <p>Please don’t hesitate to contact me if you have any questions.<br>
 <a href="mailto:Fakhteh.Saadatniaki@tufts.edu">Fakhteh.Saadatniaki@tufts.edu</a></p>
-<p>Happy code reviewing!</p>
+<p>Happy coding!</p>
 </div>
 </body>
 

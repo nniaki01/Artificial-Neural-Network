@@ -1,62 +1,46 @@
-# Artificial Neural Network
-This project implements a multilayer artificial neural network fromscratch in Python. 
-The framework is used for binary classification on two datasets:
-* [Glassdoor Data](http://bit.ly/GlassdoorApply):
+<!DOCTYPE html>
+<html>
 
-  Imagine a user visiting Glassdoor, and performing a job search. From the set of displayed results, user clicks on certain ones that she is interested in, and after checking job descriptions, she further clicks on apply button therein to land in to an application page. The apply rate is defined as the fraction of applies (after visiting job description pages), and the goal is to predict this metric using the above dataset (provided by a lead data scientist @ Glassdoor).
-  
-  Each row in the dataset corresponds to a user’s view of a job listing. It has 11 columns as described below:                     
-      
-      1. title_proximity_tfidf: Measures the closeness of query and job title.  
-      2. description_proximity_tfidf: Measures the closeness of query and job description.                                                           
-      3. main_query_tfidf: A score related to user query closeness to job title and job description.                                                     
-      4. query_jl_score: Measures the popularity of query and job listing pair. 
-      5. query_title_score: Measures the popularity of query and job title pair.
-      6. city_match: Indicates if the job listing matches to user/user-specified location.                                                            
-      7. job_age_days: Indicates the age of job listing posted.                 
-      8. apply: Indicates if the user has applied for this job listing.         
-      9. search_date_pacific: Date of the activity.                             
-      10. u_id: ID of user (for privacy reasons ID is anonymized).              
-      11. mgoc_id: Class ID of the job title clicked.                           
-                                                                              
-    Training set: The examples with the “search date pacific” column (9-th column)between 01/21/2018-01/26/2018.                               
-    
-    Test set: The examples with the “search date pacific” column (9-th column) on 01/27/2018.                                                
-    Inputs to the input layer::Features: First 7 columns.
-    Label {0,1}: 8th column, i.e., apply.
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README.md</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
 
-* [Mammography Data](http://bit.ly/MammoData):
-  
-  Goal: Predict the severity (benign or malignant) of a mammographic mass lesion from BI-RADS attributes and the patient's age.
-    Number of Features: 5 (1 non-predictive, 4 predictive)                 
-    Attribute Information:                                                 
-        
-        1. BI-RADS assessment: 1 to 5 (ordinal)                            
-        2. Age: patient's age in years (integer)                                  
-        3. Mass shape: ound=1 oval=2 lobular=3 irregular=4 (nominal)              
-        4. Mass margin: circumscribed=1 microlobulated=2 obscured=3 ill-defined=4 spiculated=5 (nominal)                                    
-        5. Density: mass density high=1 iso=2 low=3 fat-containing=4 (ordinal)  
-        6. Severity: benign=0 or malignant=1 (binominal)                          
-    
-    Obtained from <https://archive.ics.uci.edu/ml/datasets/Mammographic+Mass>
-## Network Architecture
-We implement a multi-layer neural network with a single hidden layer with full feed-forward interconnection (units in one layer are connected to every unit in the next) in order to learn nonlinear decision boundaries. There are ![Equation](https://latex.codecogs.com/gif.latex?h) neurons in the hidden layer. Note that given an adequate number of hidden units ![Equation](https://latex.codecogs.com/gif.latex?h), networks with a single hidden layer can implement arbitrary decision boundaries and any higher number of layers makes training times become very long. The activation function in both hidden and output layers is the Sigmoid activation (it's possible to apply ReLU activation function to the nodes in the hidden layer).
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="artificial-neural-network-ann">Artificial Neural Network (ANN)</h1>
+<p>In this project a multilayer artificial neural network for binary classification is implemented <em>from scratch</em> in <code>Python</code>.</p>
+<h2 id="data-sets">Data Sets</h2>
+<p>Information on the datasets can be found in the comment blocks of the file <code>preprocess_data.py</code>.</p>
+<h2 id="network-architecture">Network Architecture</h2>
+<p>The multi-layer neural network has a single hidden layer with full feed-forward interconnection (neurons in one layer are connected to every neuron in the next); this enables the learning of nonlinear decision boundaries.</p>
+<p>The number of neurons in the hidden layer, <img src="https://latex.codecogs.com/gif.latex?h" alt="Equation">, has been fixed according to the dimension of the input layer, i.e., the number of predictor variables in the specific dataset being employed.</p>
+<p>Given an adequate number of hidden neurons, networks with a single hidden layer can implement arbitrary decision boundaries and any higher number of hidden layers makes training times become very long.</p>
+<p>The activation function in both hidden and output layers is the Sigmoid activation (it’s possible to apply ReLU activation function to the nodes in the hidden layer). Implementation details found in the file <code>ActivationFunctions.py</code>.</p>
+<p>More details on the implementation of the ANN can be found in the header of the file <code>ANN.py</code>.</p>
+<h3 id="note">Note</h3>
+<p>The default number of <code>epochs</code> for stochastic gradient descent (SGD) and the <code>learning_rate</code> are set to <code>5</code> (to get end results fast) and <code>0.01</code>, respectively.</p>
+<h2 id="binary-classification">Binary Classification</h2>
+<p>The output neuron is the conditional probability of the <img src="https://latex.codecogs.com/gif.latex?+" alt="Equation"> class given the input, i.e., <img src="https://latex.codecogs.com/gif.latex?%5Cmathbb%7BP%7D%5B+%7C%5Cmathbf%7Bx%7D%5D" alt="Equation">. Given a threshold value <img src="https://latex.codecogs.com/gif.latex?0%3C%5Ctheta%3C1" alt="Equation">, a test example is classified as <img src="https://latex.codecogs.com/gif.latex?+" alt="Equation"> if <img src="https://latex.codecogs.com/gif.latex?%5Cmathbb%7BP%7D%5B+%7C%5Cmathbf%7Bx%7D%5D%3E%5Ctheta" alt="Equation"> and as <img src="https://latex.codecogs.com/gif.latex?-" alt="Equation"> otherwise.</p>
+<p>Details on the implementation of cross-entropy loss function found in the file <code>LossFunction.py</code>.</p>
+<h2 id="how-to">How-to</h2>
+<h3 id="packages-and-modules-used">Packages and Modules Used</h3>
+<pre class=" language-bash"><code class="prism  language-bash">numpy
+pandas
+matplotlib.pyplot
+os
+</code></pre>
+<p>Use the package manager <code>pip</code> to install the necessary libraries.</p>
+<h3 id="usage">Usage</h3>
+<p>To run the submission, run the script <code>main.py</code> with every other file in the same directory.</p>
+<p>The outputs of this submission are performance evaluation curves relevant to the task of binary classification. Details found in the file <code>EvaluationCurves.py</code>.</p>
+<h4 id="note-1">Note</h4>
+<p>The code tag <code># OPT</code> denotes <em>optional</em> lines or blocks of code that can be uncommented for modification of the parameters of the network, storage of auxiliary data, e.g., train and test data sets, and/or printing information-only statements.</p>
+<p>Please don’t hesitate to contact me if you have any questions.<br>
+<a href="mailto:Fakhteh.Saadatniaki@tufts.edu">Fakhteh.Saadatniaki@tufts.edu</a></p>
+<p>Happy code reviewing!</p>
+</div>
+</body>
 
-Note that in both datasets, the _numerical_ features are standardized to have zero mean and unit standard deviation and examples (rows) with missing values are removed.
-
-### Analysis
-In evaluating the performance of the classifier, care must be taken in terms of selecting the appropriate metric.   
-* Glassdoor Dataset
-   
-  In this dataset, the + class seems to be a lot less probable than the − class. In this case, a classifier can achieve good accuracy by always predicting the − class, obviously indicating a non-ideal classifier, i.e., accuracy ignores the probability estimations of classification in favor of class labels. Receiver operating characteristics (ROC) curve, on the other hand, shows the trade-off between false positive and true positive rates, making the area below the ROC curve (AUC) a better measure than accuracy for our scenario. In fact, ROC describes the discriminative power of a classifier independent of class distribution and unequal prediction error costs.
-
-  Ideally, a classifier has a true positive rate of 1 and a false positive rate of 0 (AUC= 1), and hence a classifier is better the closer it gets to the upper-left corner. On the ![Equation](https://latex.codecogs.com/gif.latex?45%5E%5Cdegree) baseline, we have the worst performance as we make as many true decisions as false ones (any classifier that is below the diagonal can be improved by flipping its decision).
-        
-  We illustrate the advantage of the AUC over accuracy by plotting the ROC curve as well as accuracy versus ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta). 
-  
-  As we can see, the accuracy metric is excellent for a large enough value of ![Equation](https://latex.codecogs.com/gif.latex?%5Ctheta), i.e., when predicting every instance as −.
-  
-  Since the classes are very imbalanced, we also plot the Precision-Recall curve; precision is a measure of result relevancy, while recall is a measure of how many truly relevant results are returned.
-* Mammography Dataset
-
-  This dataset is more or less balanced as shown by the baseline of the Precision-Recall curve, i.e., ![Equation](https://latex.codecogs.com/gif.latex?%5Cinline%20%5Cfrac%7BP%7D%7BP&plus;N%7D), where P is the number of positive labels in the traning set and N is the number of negative labels.
+</html>

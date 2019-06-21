@@ -65,7 +65,7 @@ class Network:
         Return:
             z(dict): Input or output of the activation funvtions
             a(dict): Weighted sum of inputs to a neuron AKA activation
-            y (float): Predicted output, probability.
+            y(float): Predicted output, probability.
         '''
         # First layer has no activationfunction and x is the augmented input:
         z = {1: x}
@@ -133,7 +133,7 @@ class Network:
         t_vec (pandas DataFrame): Containing biary labels.
         loss: Loss class (CrossEntropy in case of classification)
         epochs (int): Number of epochs for SGD.
-        learning_rate (flt)
+        learning_rate (float)
         """
         if not x_vec.shape[0] == t_vec.shape[0]:
             raise ValueError("Dimension mismatch!")
@@ -159,11 +159,11 @@ class Network:
             ce_loss.append(dummy_ce)
             '''___________________ Log & Plot CE Loss ______________________'''
             # OPT:
-
+            '''
             if (iter_ + 1) % 100 == 0:
                 print(iter_+1)
                 print("Loss:", dummy_ce)
-
+            '''
         plt.figure(1)
         plt.plot(range(1, epochs+1), ce_loss)
         plt.yscale('log')
@@ -171,7 +171,7 @@ class Network:
         plt.rcParams['font.size'] = 12
         plt.title('Normalized Cross-entropy vs. Epochs Curve')
         plt.xlabel('Iteration')
-        plt.ylabel('Cross-entropy Per Training Example')
+        plt.ylabel('Cross-entropy Averaged over Training Examples')
         plt.grid(True)
 
     '''_____________________________________________________________________'''

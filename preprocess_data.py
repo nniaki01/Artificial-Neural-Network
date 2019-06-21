@@ -43,6 +43,7 @@ def banknote(filename):
     shuffle = np.random.permutation(raw_data.shape[0])
     raw_data_ = raw_data.iloc[shuffle]
     num_train = round(0.8*raw_data_.shape[0])
+    # OPT: print("Size of the Training Data Set: ", num_train)
     '''   _______________________ Training Set __________________________   '''
     raw_data_train = raw_data_.iloc[0: num_train-1, :]
     features_train = raw_data_train.iloc[:, 0: num_features]
@@ -73,7 +74,7 @@ def banknote(filename):
     features_test = raw_data_test.iloc[:, 0: num_features]
     features_test = features_test.apply(pd.to_numeric, errors='coerce')
     ones_col_vec = np.ones(features_test.iloc[:, 1].shape)
-    # OPT: print("Size of the Test Data Set: ",features_test.shape[0])
+    # OPT: print("Size of the Test Data Set: ", features_test.shape[0])
 
     # Standardize all features.
     for f in range(num_features):
@@ -101,7 +102,7 @@ def banknote(filename):
 
 
 def diabetes(filename):
-    """___________________ Banknote Authentication Data Set ___________________
+    """__________________________ Diabetes Data Set ___________________________
     Description: The data set consist of several medical predictor
     (independent) variables (explained below) and one target (dependent)
     variable, outcome.
@@ -120,6 +121,7 @@ def diabetes(filename):
     7. Patient's Diabetes pedigree function                                   |
     8. Patient's age (integer)                                                |
     Outcome (integer: {0,1}): Binary label; 268 are 1, 500 are 0              |
+    From:                                                                     |
     https://www.kaggle.com/uciml/pima-indians-diabetes-database/version/1#_=_ |
     ________________________________________________________________________"""
     """ ____________________ Preprocessing the Data ________________________"""
@@ -131,6 +133,7 @@ def diabetes(filename):
     shuffle = np.random.permutation(raw_data.shape[0])
     raw_data_ = raw_data.iloc[shuffle]
     num_train = round(0.8*raw_data_.shape[0])
+    # OPT: print("Size of the Training Data Set: ", num_train)
     '''   _______________________ Training Set __________________________   '''
     raw_data_train = raw_data_.iloc[0: num_train-1, :]
     features_train = raw_data_train.iloc[:, 0: num_features]

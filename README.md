@@ -33,7 +33,7 @@ os
 </code></pre>
 <p>Use the package manager <code>pip</code> to install the necessary libraries.</p>
 <h3 id="usage">Usage</h3>
-<p>To run the submission, run the script <code>main.py</code> with every other file in the same directory.</p>
+<p>To run the project, run the script <code>main.py</code> with every other file in the same directory.</p>
 <p>The outputs of this submission are performance evaluation curves relevant to the task of binary classification. Details found in the file <code>EvaluationCurves.py</code>.</p>
 <h4 id="note-1">Note</h4>
 <p>The code tag <code># OPT</code> denotes <em>optional</em> lines or blocks of code that can be uncommented for modification of the parameters of the network, storage of auxiliary data, e.g., train and test data sets, and/or printing information-only statements.</p>

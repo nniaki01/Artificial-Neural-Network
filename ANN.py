@@ -63,7 +63,7 @@ class Network:
         Args:
             x: Augmented input feature vector.
         Return:
-            z(dict): Input or output of the activation funvtions
+            z(dict): Input or output of the activation functions
             a(dict): Weighted sum of inputs to a neuron AKA activation
             y(float): Predicted output, probability.
         '''
